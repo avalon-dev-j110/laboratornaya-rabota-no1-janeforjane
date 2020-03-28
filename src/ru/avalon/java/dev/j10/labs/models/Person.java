@@ -1,5 +1,7 @@
 package ru.avalon.java.dev.j10.labs.models;
 
+import ru.avalon.java.dev.j10.labs.commons.Address;
+
 /**
  * Представление о человеке.
  * <p>
@@ -11,6 +13,29 @@ package ru.avalon.java.dev.j10.labs.models;
  * </ol>
  */
 public class Person {
+
+    private Passport pass;
+
+    public Passport getPass() {
+        return pass;
+    }
+
+//    public void setPass(Passport pass) {
+//        this.pass = pass;
+//    }
+
+    public Person (String name, String lastName, int passNumber){
+        pass = new Passport(name, lastName, passNumber);
+
+    }
+
+    public Person () {
+        pass = new Passport();
+    }
+
+    public Person (String name){
+        pass = new Passport(name);
+    }
 
     /**
      * Возврвщает полное имя человека.
@@ -29,11 +54,32 @@ public class Person {
      *
      * @return имя человека в виде строки.
      */
+
+
+
     public String getFullName() {
         /*
          * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
          */
-        return null;
+//        String fullName;
+
+        if (pass.getSecondName () != null){
+
+            char secondName = pass.getSecondName().charAt(0);
+
+            String fullName = pass.getName() + " " + secondName + ". " + pass.getLastName();
+
+            return fullName;
+        }
+        else {
+
+            String fullName = pass.getName() + " " + pass.getMiddleName() + " " + pass.getLastName();
+            return fullName;
+        }
+
+        //        String fullName = pass.getName() +" "+ pass.getLastName();
+
+//        return fullName;
     }
 
     /**
@@ -48,6 +94,8 @@ public class Person {
         /*
          * TODO(Студент): Закончить определение метода 'getAddress()' класса 'Person'
          */
-        return null;
+        Address address = pass.getRegAdd();
+
+        return address.getCity() + " " + address.getStreet() + " " + address.getHouseNumber() + " " + address.getFlatNumber();
     }
 }
