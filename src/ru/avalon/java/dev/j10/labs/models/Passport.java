@@ -21,8 +21,8 @@ import java.util.Date;
  */
 public class Passport {
 
-    public String name;
-    public String lastName;
+    private String name;
+    private String lastName;
     private int passNumber;
     private String middleName;
     private String secondName;
@@ -84,18 +84,40 @@ public class Passport {
         this.lastName = lastName;
     }
 
-    public Passport (){
-
-    }
-
-    public Passport(String name, String lastName, int passNumber) {
+    public Passport(String name, String middleName, String secondName, String lastName, int passNumber) {
         this.name = name;
+        this.middleName = middleName;
+        this.secondName = secondName;
         this.lastName = lastName;
         this.passNumber = passNumber;
     }
 
-    public Passport(String name) {
-        this.name = name;
+
+    public String getFullName(Passport pass) {
+        /*
+         * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
+         */
+//        String fullName;
+//        *
+        if (pass.getSecondName() == null && pass.getMiddleName() == null) {
+
+            String fullName = pass.getName() + " . " + pass.getLastName();
+
+            return fullName;
+        }
+
+        else if (pass.getSecondName() != null) {
+
+            char secondName = pass.getSecondName().charAt(0);
+
+            String fullName = pass.getName() + " " + secondName + ". " + pass.getLastName();
+
+            return fullName;
+        } else {
+
+            String fullName = pass.getName() + " " + pass.getMiddleName() + " " + pass.getLastName();
+            return fullName;
+        }
     }
 
     /*
@@ -118,4 +140,5 @@ public class Passport {
      * 5. Обеспечте возможность использования класса за
      *    пределами пакета.
      */
+
 }

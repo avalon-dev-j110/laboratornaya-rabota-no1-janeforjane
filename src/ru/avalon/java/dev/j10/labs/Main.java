@@ -10,41 +10,27 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        Person ivanov = new Person();
+        Person ivanov = new Person("Ivan","Ivanovich",null, "Ivanov",1234 );
 
-        ivanov.getPass().setName("Ivan");
-        ivanov.getPass().setLastName("Ivanov");
-        ivanov.getPass().setMiddleName("Ivanovich");
+//*
         ivanov.getPass().getRegAdd().setCity("Moscow");
         ivanov.getPass().getRegAdd().setStreet("Lenina st");
         ivanov.getPass().getRegAdd().setHouseNumber(10);
         ivanov.getPass().getRegAdd().setFlatNumber(21);
 
-        String ivanovsFullName = ivanov.getFullName();
-        System.out.println(ivanovsFullName);
-
-        String ivanovsAddress = ivanov.getAddress();
-        System.out.println(ivanovsAddress);
+        System.out.println(ivanov.getFullName());
+        System.out.println(ivanov.getAddress());
 
 
-
-//        ivanov.pass.name = "Ivan";
-
-        Person smith = new Person();
-        smith.getPass().setName("John");
-        smith.getPass().setLastName("Smith");
-        smith.getPass().setSecondName("Edvard");
+        Person smith = new Person("John", null, "Edvard","Smith", 4321);
 
         smith.getPass().getRegAdd().setCity("New-York");
         smith.getPass().getRegAdd().setStreet("Main st");
         smith.getPass().getRegAdd().setHouseNumber(16);
         smith.getPass().getRegAdd().setFlatNumber(211);
 
-        String smithsFullName = smith.getFullName();
-        String smithsAddress = smith.getAddress();
-
-        System.out.println(smithsFullName);
-        System.out.println(smithsAddress);
+        System.out.println(smith.getFullName());
+        System.out.println(smith.getAddress());
 
         /*
          * TODO(Студент): Создайте экземпляры класса 'Person'

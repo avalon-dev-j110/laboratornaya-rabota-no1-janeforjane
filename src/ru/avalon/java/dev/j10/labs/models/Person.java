@@ -20,22 +20,12 @@ public class Person {
         return pass;
     }
 
-//    public void setPass(Passport pass) {
-//        this.pass = pass;
-//    }
 
-    public Person (String name, String lastName, int passNumber){
-        pass = new Passport(name, lastName, passNumber);
+    public Person (String name, String middleName , String secondName, String lastName, int passNumber){
+        pass = new Passport(name, middleName, secondName, lastName, passNumber);
 
     }
 
-    public Person () {
-        pass = new Passport();
-    }
-
-    public Person (String name){
-        pass = new Passport(name);
-    }
 
     /**
      * Возврвщает полное имя человека.
@@ -61,25 +51,11 @@ public class Person {
         /*
          * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
          */
-//        String fullName;
-
-        if (pass.getSecondName () != null){
-
-            char secondName = pass.getSecondName().charAt(0);
-
-            String fullName = pass.getName() + " " + secondName + ". " + pass.getLastName();
-
-            return fullName;
+        if(pass != null) {
+            return pass.getFullName(pass);
+        } else {
+            return "anonymous";
         }
-        else {
-
-            String fullName = pass.getName() + " " + pass.getMiddleName() + " " + pass.getLastName();
-            return fullName;
-        }
-
-        //        String fullName = pass.getName() +" "+ pass.getLastName();
-
-//        return fullName;
     }
 
     /**
